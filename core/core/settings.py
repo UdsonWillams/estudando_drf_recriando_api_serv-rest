@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'accounts',
+    "rest_framework",
+    "drf_spectacular",
+    "accounts",
     "products",
     "cart",
 ]
@@ -78,9 +79,16 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    ]
+    ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Recreating ServRest API",
+    "DESCRIPTION": "Projeto de recriação da api servRest" +
+    "com intuito de estudar o django-rest-framework",
+    "VERSION": "1.0.0",
+}
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
