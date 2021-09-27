@@ -21,7 +21,8 @@ class CreateUserSerializer(serializers.Serializer):
         username = value
         if validate_username(username):
             raise serializers.ValidationError("Seu nome de usuario não pode conter apenas numeros!!")
-
+        return username
+        
     def create(self, validated_data):
         user = User.objects.create(**validated_data)
         return user
@@ -56,6 +57,7 @@ class UpdateUserSerializer(serializers.Serializer):
         username = value
         if validate_username(username):
             raise serializers.ValidationError("Seu nome de usuario não pode conter apenas numeros!!")
+        return username
 
     def update(self, instance, validated_data):
         instance.username = validated_data.get('username', instance.username)
